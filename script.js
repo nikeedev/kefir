@@ -3,7 +3,7 @@ import { Kefir } from './kefir.js';
 const ui = [
     "Hello!",
     { 
-        // "type": "button",
+        "type": "button",
         "text": "Click me",
         "action": () => {
             alert("You clicked me!");
