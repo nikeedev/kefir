@@ -14,7 +14,7 @@ or
     "text": "Hello, world!"
 }
 ```
-You can also use `p` instead `text` in type property, of course you will get same result. 
+You can also use `p` instead `text` in type property, of course you will get same result.
 
 ## Button:
 

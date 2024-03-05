@@ -18,12 +18,17 @@ class Kefir {
 
         this.ui.forEach((elem, i) => {
             if (typeof elem === "string") {
-                const p = document.createElement("p");
-                p.innerText = elem;
-                root.appendChild(p);
+                if (elem == "br") {
+                    const br = document.createElement("br");
+                    root.appendChild(br);
+                } else {
+                    const p = document.createElement("p");
+                    p.innerText = elem;
+                    root.appendChild(p);
+                }
             } else if (typeof elem === "object") {
                 if (elem.type === undefined || typeof elem.type !== "string") {
-                    console.error("Element %s: type is not defined or is not a string", i+1);
+                    console.error("Element %s: type is not defined or is not a string", i + 1);
                 }
                 switch (elem.type) {
                     case "text":
@@ -38,6 +43,7 @@ class Kefir {
                             console.error(e);
                         }
                         root.appendChild(text);
+                        break;
                     case "button":
                         const btn = document.createElement("button");
                         try {
@@ -49,6 +55,19 @@ class Kefir {
                             console.error(e);
                         }
                         root.appendChild(btn);
+                        break;
+                    case "link":
+                    case "a":
+                        const a = document.createElement("a");
+                        try {
+                            a.innerText = elem.text;
+                            a.href = elem.href;
+                            a.target = "_blank";
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(a);
+                        break;
                 }
             }
         })
