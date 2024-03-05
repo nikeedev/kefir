@@ -37,6 +37,18 @@ class Kefir {
                         } catch (e) {
                             console.error(e);
                         }
+                        root.appendChild(text);
+                    case "button":
+                        const btn = document.createElement("button");
+                        try {
+                            btn.innerText = elem.text;
+                            if (elem.action !== undefined) {
+                                btn.onclick = elem.action;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(btn);
                 }
             }
         })

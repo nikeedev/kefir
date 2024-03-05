@@ -5,7 +5,7 @@ const ui = [
     { 
         "type": "button",
         "text": "Click me",
-        "action": () => {
+        "action": (e) => {
             alert("You clicked me!");
         }
     }
