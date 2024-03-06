@@ -21,6 +21,10 @@ class Kefir {
                 if (elem == "br") {
                     const br = document.createElement("br");
                     root.appendChild(br);
+                } else if (elem.trimStart().startsWith("css:")) {
+                    const css = document.createElement("style");
+                    css.innerHTML = elem.split("css:")[1].trim();
+                    document.head.appendChild(css);
                 } else {
                     const p = document.createElement("p");
                     p.innerText = elem;
