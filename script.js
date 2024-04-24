@@ -1,5 +1,3 @@
-import { Kefir } from './kefir.js';
-
 const ui = [
     `css:
     button {
