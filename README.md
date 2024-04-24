@@ -2,6 +2,6 @@
 
 JSON to HTML UI library. 
 
-Referene Guide: [Guide](guide.md)
+Reference Guide: [Guide](guide.md)
 
 Made by nikeedev
