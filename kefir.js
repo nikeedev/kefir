@@ -102,7 +102,24 @@ class Kefir {
                         }
                         root.appendChild(select);
                         break;
-                    
+                    case "img":
+                    case "image":
+                        const img = document.createElement("img");
+                        try {
+                            img.src = elem.src;
+                            img.alt = elem.alt != "" ? elem.alt : "";
+                            if (elem.width !== undefined) {
+                                img.width = elem.width;
+                            }
+                            if (elem.height !== undefined) {
+                                img.height = elem.height;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(img);
+                        break;
+
                     default:
                         break;
                 }

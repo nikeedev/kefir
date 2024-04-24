@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kefir.js</title>
+    <title>kefir - UI library</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto%20Sans&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto%20Mono&display=swap');
@@ -23,12 +23,79 @@
             padding: 10px;
         }
 
+        #pre {
+            word-spacing: 10px;
+            font-family: monospace;
+            word-break: break-all;
+        }  
     </style>
 </head>
 <body>
-    <h1>Welcome to <span id="code">kefir.js</span>!</h1>
+    <h1>Welcome to <span id="code">kefir</span>!</h1>
     <p>The JSON to HTML UI library.</p>
     <p>Here is the UI that is all drawn by <span id="code">kefir.js</span></p>
+    <p>The JSON:</p>
+    <div id="pre">
+        [
+        `css:
+        button {
+            background-color: white;
+            border-radius: 17px;
+            padding: 10px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+    
+        button:hover {
+            transition-property: background-color;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 0.5s;
+            background-color: #A6A6A6;
+        }
+        
+        `,
+        "Hello!",
+        {
+            type: "button",
+            text: "Click me",
+            action: (e) => {
+                alert("You clicked me!");
+            }
+        },
+        "br",
+        "br",
+        {
+            type: "link",
+            text: "My Website",
+            href: "https://nikeedev.stio.studio/"
+        },
+        "br",
+        "br",
+        "Select an option: ",
+        {
+            type: "select",
+            options: ["me", "you", "world"], 
+            action: (e) => {
+                let text = document.getElementById("changeme");
+    
+                text.innerText = "Hello " + e.target.value + "!";
+            }
+        },
+        {
+            type: "text",
+            text: "Hello ",
+            id: "changeme"
+        },
+        {
+            type: "image",
+            src: "https://letzerland.nikee.dev/Confederation%20of%20Letzerland.svg",
+            width: 200
+    
+        }
+    ]
+    </div>
+    <p>The HTML:</p>
     <div id="root">
         
     </div>

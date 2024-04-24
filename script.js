@@ -50,6 +50,12 @@ const ui = [
         type: "text",
         text: "Hello ",
         id: "changeme"
+    },
+    {
+        type: "image",
+        src: "https://letzerland.nikee.dev/Confederation%20of%20Letzerland.svg",
+        width: 200
+
     }
 ];
 
