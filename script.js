@@ -33,6 +33,23 @@ const ui = [
         type: "link",
         text: "My Website",
         href: "https://nikeedev.stio.studio/"
+    },
+    "br",
+    "br",
+    "Select an option: ",
+    {
+        type: "select",
+        options: ["me", "you", "world"], 
+        action: (e) => {
+            let text = document.getElementById("changeme");
+
+            text.innerText = "Hello " + e.target.value + "!";
+        }
+    },
+    {
+        type: "text",
+        text: "Hello ",
+        id: "changeme"
     }
 ];
 

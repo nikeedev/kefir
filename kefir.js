@@ -38,6 +38,9 @@ class Kefir {
                     case "text":
                     case "p":
                         const text = document.createElement("p");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            text.id = elem.id;
+                        }
                         try {
                             text.innerText = elem.text;
                             if (elem.action !== undefined) {
@@ -49,7 +52,11 @@ class Kefir {
                         root.appendChild(text);
                         break;
                     case "button":
+                    case "btn":
                         const btn = document.createElement("button");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            btn.id = elem.id;
+                        }
                         try {
                             btn.innerText = elem.text;
                             if (elem.action !== undefined) {
@@ -63,6 +70,9 @@ class Kefir {
                     case "link":
                     case "a":
                         const a = document.createElement("a");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            a.id = elem.id;
+                        }
                         try {
                             a.innerText = elem.text;
                             a.href = elem.href;
@@ -72,6 +82,29 @@ class Kefir {
                         }
                         root.appendChild(a);
                         break;
+                    case "select":
+                        const select = document.createElement("select");
+                        select.selectedIndex = 0;
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            select.id = elem.id;
+                        }
+                        try {
+                            elem.options.forEach((option) => {
+                                const optionElement = document.createElement("option");
+                                optionElement.innerText = option;
+                                select.appendChild(optionElement);
+                            });
+                            if (elem.action !== undefined) {
+                                select.onchange = elem.action;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(select);
+                        break;
+                    
+                    default:
+                        break;
                 }
             }
         })
@@ -80,6 +113,6 @@ class Kefir {
 };
 
 
-console.log("%ckefir.js v0.1.0", "font-family:monospace;font-size:20px; padding:10px; border-radius:10px; background: -webkit-linear-gradient(180deg, #7d6f4c, black); color: eggwhite;");
+console.log("%ckefir.js v0.1.0", "font-family:monospace;font-size:20px; padding:10px; border-radius:10px; background-color: white; color: black;");
 
 export { Kefir };
