@@ -1,3 +1,5 @@
+import { Kefir } from "./kefir.js";
+
 const ui = [
     `css:
     button {
@@ -33,6 +35,12 @@ const ui = [
         href: "https://nikeedev.stio.studio/"
     },
     "br",
+    "br",
+    {
+        type: "link",
+        text: "Other kefir tests",
+        href: "./test.html"
+    },
     "br",
     "Select an option: ",
     {

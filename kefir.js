@@ -134,3 +134,4 @@ class Kefir {
 
 console.log("%ckefir.js v0.1.0", "font-family:monospace;font-size:20px; padding:10px; border-radius:10px; background-color: white; color: black;");
 
+export { Kefir };
