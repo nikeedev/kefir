@@ -37,11 +37,11 @@ const ui = [
     "Select an option: ",
     {
         type: "select",
-        options: ["me", "you", "world"], 
+        options: ["just hello", "me", "you", "world"], 
         action: (e) => {
             let text = document.getElementById("changeme");
 
-            text.innerText = "Hello " + e.target.value + "!";
+            text.innerText = "Hello" + (e.target.value != "just hello" ? " " + e.target.value : "") + "!";
         }
     },
     {

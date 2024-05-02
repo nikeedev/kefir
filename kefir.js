@@ -1,6 +1,8 @@
+"use strict";
+
 class Kefir {
-    #root = "root"
-    ui
+    #root = "root";
+    ui;
     set root(id) {
         this.#root = id;
         console.log("Root set to: #", this.root);
