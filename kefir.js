@@ -21,9 +21,11 @@ class Kefir {
         this.ui.forEach((elem, i) => {
             if (typeof elem === "string") {
                 if (elem == "br") {
-                    const br = document.createElement("br");
-                    root.appendChild(br);
-                } else if (elem.trimStart().startsWith("css:")) {
+                    root.appendChild(document.createElement("br"));
+                } else if (elem == "hr") {
+                    root.appendChild(document.createElement("hr"));
+                }
+                else if (elem.trimStart().startsWith("css:")) {
                     const css = document.createElement("style");
                     css.innerHTML = elem.split("css:")[1].trim();
                     document.head.appendChild(css);
@@ -107,6 +109,9 @@ class Kefir {
                     case "img":
                     case "image":
                         const img = document.createElement("img");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            input.id = elem.id;
+                        }
                         try {
                             img.src = elem.src;
                             img.alt = elem.alt != "" ? elem.alt : "";
@@ -116,10 +121,32 @@ class Kefir {
                             if (elem.height !== undefined) {
                                 img.height = elem.height;
                             }
+                            if (elem.action !== undefined) {
+                                img.onclick = elem.action;
+                            }
                         } catch (e) {
                             console.error(e);
                         }
                         root.appendChild(img);
+                        break;
+
+                    case "input":
+                        const input = document.createElement("input");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            input.id = elem.id;
+                        }
+                        try {
+                            input.type = elem.input_type;
+                            if (elem.placeholder != undefined)
+                                input.placeholder = elem.placeholder;
+                            
+                            if (elem.action !== undefined) {
+                                input.onchange = elem.action;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(input);
                         break;
 
                     default:

@@ -4,7 +4,6 @@ let button = localStorage.getItem("counter") || 0;
 const ui = [
     "Hello",
     "br",
-    "br",
     {
         type: "button",
         text: "Increment: " + button,
@@ -16,6 +15,7 @@ const ui = [
         id: "incr"
     },
     "br",
+    "br",
     {
         type: "button",
         text: "Clear",
@@ -24,6 +24,11 @@ const ui = [
             document.getElementById("incr").innerText = "Increment: " + button;
             localStorage.setItem("counter", button);
         }
+    },
+    "hr",
+    {
+        type: "input",
+        input_type: "checkbox",
     }
 ]
 
