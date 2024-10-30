@@ -148,6 +148,21 @@ class Kefir {
                         }
                         root.appendChild(input);
                         break;
+                    
+                    case "div":
+                        const div = document.createElement("div");
+                        if (elem.id !== undefined && elem.id.trim() !== "") {
+                            div.id = elem.id;
+                        }
+                        try {
+                            if (elem.action !== undefined) {
+                                div.onclick = elem.action;
+                            }
+                        } catch (e) {
+                            console.error(e);
+                        }
+                        root.appendChild(div);
+                        break;
 
                     default:
                         break;
