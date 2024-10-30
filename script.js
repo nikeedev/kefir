@@ -32,7 +32,7 @@ const ui = [
     {
         type: "link",
         text: "My Website",
-        href: "https://nikeedev.stio.studio/"
+        href: "https://nikee.dev/"
     },
     "br",
     "br",
