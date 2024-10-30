@@ -6,6 +6,7 @@ const ui = [
     `css:
     .clicked {
         background-color: yellow;
+        transition: background-color 5s;
     }
 
     #click {
@@ -13,7 +14,6 @@ const ui = [
         height: 100px;
         background-color: white;
         border: 1px solid black;
-        transition: background-color 1s;
     }
     `,
     "Hello",
