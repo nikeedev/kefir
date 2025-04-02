@@ -1,30 +1,20 @@
 import { Kefir } from "./kefir.js";
 
-let button = localStorage.getItem("counter") || 0;
-let clicked = false;
 const ui = [
-    `css:
-    .clicked {
-        background-color: yellow;
-        transition: background-color 5s;
-    }
-
-    #click {
-        width: 100px;
-        height: 100px;
-        background-color: white;
-        border: 1px solid black;
-    }
-    `,
     "Hello",
     "br",
     {
         type: "button",
-        text: "Increment: " + button,
+        text: "Increment: " + (localStorage.getItem("count") == null || localStorage.getItem("count") == undefined ? "0" : localStorage.getItem("count").toString()),
         action: (e) => {
-            button++;
-            e.target.innerText = "Increment: " + button;
-            localStorage.setItem("counter", button);
+            let incr = document.getElementById("incr");
+            if (incr.getAttribute("count") == undefined) incr.setAttribute("count", 0);
+
+            incr.setAttribute("count", localStorage.getItem("count") != null || localStorage.getItem("count") != undefined ? localStorage.getItem("count") : "0");
+            
+            incr.setAttribute("count", (parseInt(incr.getAttribute("count"))+1).toString());
+            e.target.innerText = "Increment: " + incr.getAttribute("count");
+            localStorage.setItem("count", incr.getAttribute("count"));
         },
         id: "incr"
     },
@@ -34,26 +24,13 @@ const ui = [
         type: "button",
         text: "Clear",
         action: (e) => {
-            button = 0;
-            document.getElementById("incr").innerText = "Increment: " + button;
-            localStorage.setItem("counter", button);
+            let incr = document.getElementById("incr");
+            incr.setAttribute("count", 0);
+            incr.innerText = "Increment: " + incr.getAttribute("count");
+            localStorage.setItem("count", incr.getAttribute("count"));
         }
     },
     "hr",
-    {
-        type: "input",
-        input_type: "checkbox",
-        action: () => {
-            document.getElementById("click").className = clicked ? "" : "clicked";
-            clicked = !clicked;
-        }
-    },
-    "Did you click it??",
-    {
-        type: "div",
-        id: "click"
-    }
-
 ]
 
 const kefir = new Kefir(ui);

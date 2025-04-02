@@ -141,6 +141,9 @@ class Kefir {
                                 input.placeholder = elem.placeholder;
                             
                             if (elem.action !== undefined) {
+                                if (elem.action_type !== undefined) {
+                                    input[elem.action_type] = elem.action;
+                                }
                                 input.onchange = elem.action;
                             }
                         } catch (e) {
